@@ -47,7 +47,7 @@ export default class Comments extends React.Component {
                 likes,
                 comments : [...prevState.comments, {user, comment}],
                 newUser: '',
-                newComment: ''
+                newComment: '',
             };
         });
     }
@@ -63,13 +63,13 @@ export default class Comments extends React.Component {
 
                 {this.state.commentButtonClicked ? <View style={comment}>
                     <TextInput onChangeText={this.handleUserNameInput} placeholder = 'enter your username' style={commentItem} />
-                    <TextInput onChange={this.handleCommentInput} placeholder = 'enter a comment' style={commentItem} />
+                    <TextInput onChangeText={this.handleCommentInput} placeholder = 'enter a comment' style={commentItem} />
                     <Button onPress={this.handleSubmitButtonClick} title='Submit Comment' />
                 </View> : null}
 
                 <Text>Likes: {this.state.likes}</Text>
 
-                {this.state.comments.length > 0 ? <View style={allText}>
+                {this.state.comments.length > 1 ? <View style={allText}>
                     {this.state.comments.map((item, index) => (
                         <View key = {index}>
                             <Text style={textBox}>{item.user} : {item.comment}</Text>
